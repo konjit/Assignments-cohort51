@@ -26,6 +26,7 @@ function addToShoppingCart(grocery) {
     }
     shoppingCart.push(grocery);
   }
+
   return `You bought ${shoppingCart.join(', ')}!`;
 }
 
