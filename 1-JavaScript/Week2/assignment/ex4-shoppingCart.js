@@ -17,11 +17,11 @@ you have more than 3 items in your shopping cart the first item gets taken out.
 2. Confirm that your code passes the unit tests.
 -----------------------------------------------------------------------------*/
 const shoppingCart = ['bananas', 'milk'];
-
+const shoppingCartSize = 3;
 // ! Function to be tested
 function addToShoppingCart(grocery) {
   if (grocery) {
-    if (shoppingCart.length >= 3) {
+    if (shoppingCart.length >= shoppingCartSize) {
       shoppingCart.shift();
     }
     shoppingCart.push(grocery);

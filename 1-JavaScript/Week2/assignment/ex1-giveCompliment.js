@@ -31,7 +31,7 @@ export function giveCompliment(name) {
     'exceptional',
   ];
 
-  return `You are ${compliments[Math.floor(Math.random() * (compliments.length - 1))]}, ${name}!`;
+  return `You are ${compliments[Math.floor(Math.random() * compliments.length)]}, ${name}!`;
 }
 
 function main() {
