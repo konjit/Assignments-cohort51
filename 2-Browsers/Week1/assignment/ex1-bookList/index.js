@@ -18,7 +18,26 @@ https://hackyourfuture.github.io/example-pages/Browsers/Week1/1-booklist/
 //cspell: enable
 
 function createBookList(books) {
-  // TODO your code goes in here, return the ul element
+  const doc = document;
+
+  const ulElement = doc.createElement('ul');
+  books.forEach((book) => {
+    const pElement = doc.createElement('p');
+    const liElement = doc.createElement('li');
+    pElement.textContent = `${book.title} by ${book.author}`;
+    liElement.appendChild(pElement);
+
+    liElement.style.background = book.alreadyRead ? 'green' : 'red';
+
+    const imgElement = doc.createElement('img');
+    imgElement.src = book.url;
+    imgElement.alt = book.title;
+    liElement.appendChild(imgElement);
+
+    ulElement.appendChild(liElement);
+  });
+
+  return ulElement;
 }
 
 function main() {
@@ -28,18 +47,21 @@ function main() {
       author: 'Don Norman',
       isbn: '978-0465050659',
       alreadyRead: false,
+      url: 'https://hackyourfuture.github.io/example-pages/Browsers/Week1/1-booklist/assets/the_design_of_everyday_things.jpg',
     },
     {
       title: 'The Most Human Human',
       author: 'Brian Christian',
       isbn: '978-1617933431',
       alreadyRead: true,
+      url: 'https://hackyourfuture.github.io/example-pages/Browsers/Week1/1-booklist/assets/the_most_human_human.jpg',
     },
     {
       title: 'The Pragmatic Programmer',
       author: 'Andrew Hunt',
       isbn: '978-0201616224',
       alreadyRead: true,
+      url: 'https://hackyourfuture.github.io/example-pages/Bro…k1/1-booklist/assets/the_pragmatic_programmer.jpg',
     },
   ];
 

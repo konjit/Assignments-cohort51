@@ -20,8 +20,57 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/2-B
 
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
+
+const catImage = document.querySelector('img');
+
+catImage.style.left = 0 + 'px';
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
+const dancingCatUrl =
+  'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
+
+const walkingCatUrl = catImage.src;
+
+let catLeftPos = 0;
+let catTopPos = 0;
+const catWidth = catImage.offsetWidth;
+const catHeight = catImage.offsetHeight;
+
+const STEP_RIGHT = 10;
+const STEP_BOTTOM = 100;
+const WALKING_INTERVAL = 50;
+const DANCING_INTERVAL = 5000;
+
+let catWalking = null;
+
 function catWalk() {
-  // TODO complete this function
+  catLeftPos += STEP_RIGHT;
+
+  if (catLeftPos >= screenWidth - catWidth) {
+    catLeftPos = 0;
+    catTopPos += STEP_BOTTOM;
+    catImage.style.top = catTopPos + 'px';
+  }
+
+  catImage.style.left = catLeftPos + 'px';
+
+  const middleX = screenWidth / 2 - catWidth / 2;
+  const middleY = screenHeight / 2 - catHeight / 2;
+  if (
+    catLeftPos >= middleX &&
+    catLeftPos < middleX + STEP_RIGHT &&
+    catTopPos >= middleY &&
+    catTopPos < middleY + STEP_BOTTOM
+  ) {
+    clearInterval(catWalking);
+    catImage.src = dancingCatUrl;
+    setTimeout(() => {
+      catImage.src = walkingCatUrl;
+      setInterval(catWalk, WALKING_INTERVAL);
+    }, DANCING_INTERVAL);
+  }
 }
 
-// TODO execute `catWalk` when the browser has completed loading the page
+window.addEventListener('load', () => {
+  catWalking = setInterval(catWalk, WALKING_INTERVAL);
+});
