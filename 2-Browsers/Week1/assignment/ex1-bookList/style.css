@@ -10,6 +10,14 @@ html,
 body {
   background-color: bisque;
 }
+.read {
+  background-color: green;
+}
+
+.unread {
+  background-color: red;
+}
+
 h1 {
   padding: 2.5rem;
   font-size: 2rem;

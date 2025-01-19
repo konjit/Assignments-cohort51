@@ -18,5 +18,6 @@ function addCurrentTime() {
 }
 
 window.addEventListener('load', () => {
+  addCurrentTime(); // Fixed the delay
   setInterval(addCurrentTime, 1000);
 });
