@@ -27,9 +27,9 @@ exercise file.
 import { rollDie } from '../../helpers/pokerDiceRoller.js';
 
 export function rollDice() {
-  // TODO Refactor this function
   const dice = [1, 2, 3, 4, 5];
-  return rollDie(1);
+  const dicePromises = dice.map(() => rollDie());
+  return Promise.all(dicePromises);
 }
 
 function main() {
@@ -43,4 +43,5 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 
-// TODO Replace this comment by your explanation that was asked for in the assignment description.
+// Each promise created are independent and does not know if an other promise is resolved and rejected
+// And once a promise is created we cannot cancel it.
