@@ -100,7 +100,7 @@ Each `assignment` folder contains files and (sometimes) sub-folders that make up
 
 > You should not change anything in the `unit-tests` sub-folder. The purpose of this folder will be explained later.
 
-As mentioned, each exercise comes with starter code. Inside the starter code you will find comments that indicate the places where there is something for you to do. For example, in the code of the JavaScript file `ex1-giveCompliment.js` as shown in Figure 2 this is:
+As mentioned, each exercise comes with starter code. Inside the starter code you will find comments that indicate the places where there is something for you to do. For example, in the JavaScript file `ex1-giveCompliment.js` (shown in Figure 2), the code looks like this:
 
 1. The **parameter list** (if needed, for you to figure out) of the function `giveCompliment`.
 2. The **function body** of `giveCompliment`.
