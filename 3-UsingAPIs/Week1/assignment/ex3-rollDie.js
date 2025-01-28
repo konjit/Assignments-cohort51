@@ -1,10 +1,10 @@
 /*------------------------------------------------------------------------------
 Full description at: https://github.com/HackYourFuture/Assignments/tree/main/3-UsingAPIs/Week1#exercise-3-roll-a-die
 
-- Run the unmodified program and confirm that problem described occurs.
+- Run the unmodified program and confirm that the problem described occurs.
 - Refactor the `rollDie()` function from callback-based to returning a
   promise.
-- Change the calls to `callback()` to calls to `resolve()` and `reject()`.
+- Change the calls from `callback()` to calls to `resolve()` and `reject()`.
 - Refactor the code that call `rollDie()` to use the promise it returns.
 - Does the problem described above still occur? If not, what would be your
   explanation? Add your answer as a comment to be bottom of the file.
