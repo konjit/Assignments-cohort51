@@ -22,14 +22,7 @@ export function checkDoubleDigits(number) {
   });
 }
 
-const is2Digit = (number) => {
-  let count = 0;
-  while (number) {
-    number = Math.floor((number /= 10));
-    count++;
-  }
-  return count === 2;
-};
+const is2Digit = (num) => num >= 10 && num <= 99;
 
 function main() {
   checkDoubleDigits(9) // should reject
