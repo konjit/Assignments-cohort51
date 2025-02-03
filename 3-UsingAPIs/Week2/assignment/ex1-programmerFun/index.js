@@ -17,28 +17,41 @@ Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-U
    should result in a network (DNS) error.
 ------------------------------------------------------------------------------*/
 function requestData(url) {
-  // TODO return a promise using `fetch()`
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        return Promise.reject(new Error(`HTTP Error: ${response.statusText}`));
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      return Promise.reject(new Error(`Network Error: ${error.message}`));
+    });
 }
 
 function renderImage(data) {
-  // TODO render the image to the DOM
-  console.log(data);
+  const img = document.createElement('img');
+  img.src = data.img;
+  img.alt = 'Chess Board';
+  const body = document.querySelector('body');
+  body.appendChild(img);
 }
 
 function renderError(error) {
-  // TODO render the error to the DOM
-  console.log(error);
+  const h1 = document.createElement('h1');
+  h1.innerText = error.message;
+  const body = document.querySelector('body');
+  body.appendChild(h1);
 }
 
-// TODO refactor with async/await and try/catch
-function main() {
-  requestData('https://xkcd.now.sh/?comic=latest')
-    .then((data) => {
-      renderImage(data);
-    })
-    .catch((error) => {
-      renderError(error);
-    });
+async function main() {
+  try {
+    const url = 'https://xkcd.now.sh/?comic=latest';
+    const data = await requestData(url);
+    renderImage(data);
+  } catch (error) {
+    renderError(error);
+  }
 }
 
 window.addEventListener('load', main);
